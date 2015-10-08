@@ -3,7 +3,7 @@
     echo 'A url must be provided!';
   }
   else {
-    $url=$_GET["url"];
+    $url=escapeshellarg($_GET["url"]);
     $command="wget -O /tmp/tempim.jpg \"$url\"";
     shell_exec("$command");
     $output = shell_exec("ocropus page /tmp/tempim.jpg");
